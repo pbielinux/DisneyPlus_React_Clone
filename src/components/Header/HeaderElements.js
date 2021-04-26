@@ -114,3 +114,7 @@ export const Login = styled.a`
 		cursor: pointer;
 	}
 `;
+
+export const UserImg = styled.img`
+	height: 100%;
+`;

@@ -3,6 +3,7 @@ import {
 	Logo,
 	NavMenu,
 	Login,
+	UserImg
 } from './HeaderElements';
 import {
 	auth,
@@ -10,20 +11,20 @@ import {
 } from '../../firebase';
 import {
 	useDispatch,
-	userSelector
+	useSelector
 } from "react-redux"; // To Dispatch orders to our store, Selector retrieves order from store
 import { useHistory } from "react-router-dom";
 import {
 	selectUserName,
-	selectUserEmail,
-	selectUserPhoto
+	selectUserPhoto,
+	setUserLoginDetails,
 } from '../../features/user/userSlice'
 
 const Header = (props) =>  {
 
 	const dispatch = useDispatch();
 	const history = useHistory();
-	const username = useSelector(selectUserName);
+	const userName = useSelector(selectUserName);
 	const userPhoto = useSelector(selectUserPhoto);
 
 	const handleAuth = () => {
@@ -42,7 +43,7 @@ const Header = (props) =>  {
 			setUserLoginDetails({
 				name: user.displayName,
 				email: user.email,
-				photo: user.PhotoURL,
+				photo: user.photoURL,
 			})
 		);
 	};
@@ -53,37 +54,41 @@ const Header = (props) =>  {
 				<img src='/images/logo.svg' alt='Disney+' />
 			</Logo>
 
-			{!userName ? <Login onClick={handleauth}>Login</Login> : <></>}
-
-			<NavMenu>
-				<a href='/home'>
-					<img src='/images/home-icon.svg' alt="HOME" />
-					<span>HOME</span>
-				</a>
-				<a href='/search'>
-					<img src='/images/search-icon.svg' alt="SEARCH" />
-					<span>SEARCH</span>
-				</a>
-				<a href='/watchlist'>
-					<img src='/images/watchlist-icon.svg' alt="WATCHLIST" />
-					<span>WATCHLIST</span>
-				</a>
-				<a href='/originals'>
-					<img src='/images/original-icon.svg' alt="ORIGINALS" />
-					<span>ORIGINALS</span>
-				</a>
-				<a href='/movies'>
-					<img src='/images/movie-icon.svg' alt="MOVIES" />
-					<span>MOVIES</span>
-				</a>
-				<a href='/series'>
-					<img src='/images/series-icon.svg' alt="SERIES" />
-					<span>SERIES</span>
-				</a>
-			</NavMenu>
-			<Login onClick={handleAuth}>Login</Login>
+			{!userName ? (
+				<Login onClick={handleAuth}>Login</Login>
+			) : (
+				<>
+				<NavMenu>
+					<a href='/home'>
+						<img src='/images/home-icon.svg' alt="HOME" />
+						<span>HOME</span>
+					</a>
+					<a href='/search'>
+						<img src='/images/search-icon.svg' alt="SEARCH" />
+						<span>SEARCH</span>
+					</a>
+					<a href='/watchlist'>
+						<img src='/images/watchlist-icon.svg' alt="WATCHLIST" />
+						<span>WATCHLIST</span>
+					</a>
+					<a href='/originals'>
+						<img src='/images/original-icon.svg' alt="ORIGINALS" />
+						<span>ORIGINALS</span>
+					</a>
+					<a href='/movies'>
+						<img src='/images/movie-icon.svg' alt="MOVIES" />
+						<span>MOVIES</span>
+					</a>
+					<a href='/series'>
+						<img src='/images/series-icon.svg' alt="SERIES" />
+						<span>SERIES</span>
+					</a>
+				</NavMenu>
+				<UserImg src={userPhoto} alt={userName} />
+				</>
+			)}
 		</Nav>
-	)
+	);
 };
 
 export default Header;
