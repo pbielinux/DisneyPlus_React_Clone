@@ -13,6 +13,7 @@ export const Nav = styled.nav`
 	padding: 0 36px;
 	letter-spacing: 16px;
 	z-index: 3;
+	user-select: none;
 `;
 
 export const Logo = styled.a`
@@ -45,10 +46,12 @@ export const NavMenu = styled.div`
 		display: flex;
 		align-items: center;
 		padding: 0 12px;
+		user-select: none;
 
 		img {
 			height: 20px;
 			min-width: 20px;
+			min-height: 20px;
 			width: 20px;
 			z-index: auto;
 		}
@@ -102,10 +105,12 @@ export const Login = styled.a`
 	border: 1px solid #f9f9f9;
 	border-radius: 4px;
 	transition: all 0.2s ease 0s; //Same as ease-out
+	user-select: none; // Lock the text selection to users
 
 	&:hover {
 		background-color: #f9f9f9;
 		color: #000;
 		border-color: transparent;
+		cursor: pointer;
 	}
 `;

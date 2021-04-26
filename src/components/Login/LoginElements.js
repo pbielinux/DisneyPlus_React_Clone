@@ -40,14 +40,14 @@ export const CTA = styled.div`
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-/* 	justify-content: center;
+ 	justify-content: center;
 	margin-top: 0;
 	align-items: center;
 	text-align: center;
 	margin-right: auto;
 	margin-left: auto;
 	transition-timing-function: ease-out;
-	transition: opacity 0.2s; */
+	transition: opacity 0.2s;
 `;
 
 export const CTALogoOne = styled.img`
@@ -56,6 +56,7 @@ export const CTALogoOne = styled.img`
 	min-height: 1px;
 	display: block;
 	width: 100%;
+	user-select: none;
 `;
 
 export const SignUp = styled.a`
@@ -69,9 +70,11 @@ export const SignUp = styled.a`
 	padding: 16.5px 0;
 	border: 1px solid transparent;
 	border-radius: 4px;
+	user-select: none;
 
 	&:hover {
 		background-color: #0483ee;
+		cursor: pointer;
 	}
 `;
 
