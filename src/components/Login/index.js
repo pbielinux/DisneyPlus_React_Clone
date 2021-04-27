@@ -9,7 +9,7 @@ import {
 	CTALogoTwo,
 } from './LoginElements';
 
-const Login = (props) => {
+const Login = () => {
 	return (
 		<Container>
 			<Content>

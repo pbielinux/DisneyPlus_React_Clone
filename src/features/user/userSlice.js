@@ -1,9 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = { // Start off blank
-	name: "",
-	email: "",
-	photo: "",
+	name: '',
+	email: '',
+	photo: '',
 };
 
 const userSlice = createSlice ({

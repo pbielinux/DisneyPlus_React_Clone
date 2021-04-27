@@ -1,11 +1,16 @@
 import {
-
+	Container,
 } from './HomeElements';
+import ImgSlider from '../ImgSlider/index';
+import Viewers from '../Viewers/index';
 
-const Home = (props) => {
+const Home = () => {
 	return (
-		<div>Home</div>
-	)
+		<Container>
+			<ImgSlider />
+			<Viewers />
+		</Container>
+	);
 };
 
 export default Home;
