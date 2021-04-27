@@ -3,7 +3,9 @@ import {
 	Logo,
 	NavMenu,
 	Login,
-	UserImg
+	UserImg,
+	SignOut,
+	DropDown
 } from './HeaderElements';
 import {
 	auth,
@@ -14,6 +16,7 @@ import {
 	useSelector
 } from "react-redux"; // To Dispatch orders to our store, Selector retrieves order from store
 import { useHistory } from "react-router-dom";
+import { useEffect } from 'react'
 import {
 	selectUserName,
 	selectUserPhoto,
@@ -26,6 +29,15 @@ const Header = (props) =>  {
 	const history = useHistory();
 	const userName = useSelector(selectUserName);
 	const userPhoto = useSelector(selectUserPhoto);
+
+	useEffect(() => {
+		auth.onAuthStateChanged(async (user) => {
+			if(user) {
+				setUser(user);
+				history.push('/home'); //if user is already logged in, bring him to the homepage
+			}
+		})
+	}, [userName]); // Setting userName as a dependency, makes the function runs each time the user changes
 
 	const handleAuth = () => {
 		auth
@@ -84,7 +96,12 @@ const Header = (props) =>  {
 						<span>SERIES</span>
 					</a>
 				</NavMenu>
-				<UserImg src={userPhoto} alt={userName} />
+				<SignOut>
+					<UserImg src={userPhoto} alt={userName} />
+					<DropDown>
+						<span onClick={handleAuth}>Sign out</span>
+					</DropDown>
+				</SignOut>
 				</>
 			)}
 		</Nav>

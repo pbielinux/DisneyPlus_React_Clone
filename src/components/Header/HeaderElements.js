@@ -118,3 +118,32 @@ export const Login = styled.a`
 export const UserImg = styled.img`
 	height: 100%;
 `;
+
+export const DropDown = styled.div`
+	position: absolute;
+	top: 48px;
+	right: 0px;
+	background: rgb(19, 19, 19);
+	border: 1px solid rgba(151, 151, 151);
+	border-radius: 4px;
+	box-shadow: rgb(0, 0, 0 / 50%) 0px 0px 18px;
+	padding: 10px;
+	font-size: 14px;
+	letter-spacing: 3px;
+	width: 100px;
+	opacity: 0;
+`;
+
+export const SignOut = styled.div`
+	position: relative;
+	height: 48px;
+	width: 48px;
+	display: flex;
+	cursor: pointer;
+	align-items: center; // Vertical align
+	justify-content: center; // Horizontal align
+
+	${UserImg} {
+		border-radius: 50%;
+	}
+`;
