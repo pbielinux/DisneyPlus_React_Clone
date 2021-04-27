@@ -145,5 +145,14 @@ export const SignOut = styled.div`
 
 	${UserImg} {
 		border-radius: 50%;
+		width: 100%;
+		height:100%;
+	}
+
+	&:hover {
+		${DropDown} {
+			opacity: 1;
+			transition-duration: 1s;
+		}
 	}
 `;

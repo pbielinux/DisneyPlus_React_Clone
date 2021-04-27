@@ -21,6 +21,7 @@ import {
 	selectUserName,
 	selectUserPhoto,
 	setUserLoginDetails,
+	setSignOutState
 } from '../../features/user/userSlice'
 
 const Header = (props) =>  {
@@ -36,10 +37,11 @@ const Header = (props) =>  {
 				setUser(user);
 				history.push('/home'); //if user is already logged in, bring him to the homepage
 			}
-		})
+		});
 	}, [userName]); // Setting userName as a dependency, makes the function runs each time the user changes
 
 	const handleAuth = () => {
+		if (!userName) {
 		auth
 			.signInWithPopup(provider)
 			.then((result) => { // Read and then return with the result
@@ -48,7 +50,14 @@ const Header = (props) =>  {
 			.catch((error) => {
 				alert(error.message);  //If catch an error show alert
 		});
+		} else if (userName) {
+			auth.signOut().then(() => {
+				dispatch(setSignOutState());
+				history.push('/');
+		}).catch((err) => alert(err.message));
+		}
 	};
+
 
 	const setUser = (user) => {
 		dispatch(
