@@ -11,7 +11,7 @@ export const Carousel = styled(Slider)`
 		z-index: 1;
 
 		&:hover {
-			opacity: 1;
+			opacity: 0.2;
 			transition: opacity 0.2s ease 0s;
 		};
 	};
@@ -33,11 +33,11 @@ export const Carousel = styled(Slider)`
 	};
 
 	.slick-prev {
-		left: -50px;
+		left: -35px;
 	};
 
 	.slick-next {
-		right: -50px;
+		right: -35px;
 	};
 `;
 

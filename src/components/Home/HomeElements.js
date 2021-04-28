@@ -7,6 +7,7 @@ export const Container = styled.main`
 	display: block;
 	top: 72px;     //define the top to start after the Navbar
 	padding: 0 calc(3.5vh + 5px);
+	user-select: none;
 
 	&:after {
 		background: url('/images/home-background.png') center center / cover no-repeat fixed;
