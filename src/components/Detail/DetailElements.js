@@ -154,8 +154,9 @@ export const GroupWatch = styled.div`
 `;
 
 export const SubTitle = styled.div`
-	color: rgb(249, 249, 249);
-	font-size: 15px;
+	color: rgb(210, 210, 210);
+	font-size: 16px;
+	letter-spacing: 1px;
 	min-height: 20px;
 
 	@media (max-width: 768px) {
@@ -165,7 +166,8 @@ export const SubTitle = styled.div`
 
 export const Description = styled.div`
 	line-height: 1.4;
-	font-size: 20px;
+	font-size: 18px;
+	font-weight: 300;
 	padding: 16px 0px;
 	color: rgb(249, 249, 249);
 
